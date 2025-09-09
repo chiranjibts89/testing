@@ -26,8 +26,8 @@ const Lessons: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         className="text-center"
       >
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">Environmental Education</h1>
-        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+        <h1 className="text-4xl font-bold text-white mb-4">Environmental Education</h1>
+        <p className="text-white/70 text-lg max-w-2xl mx-auto">
           Discover the fascinating world of environmental science through interactive lessons designed specifically for Indian students.
         </p>
       </motion.div>
@@ -37,26 +37,26 @@ const Lessons: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        className="bg-white rounded-xl shadow-lg p-6"
+        className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl p-6"
       >
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-bold text-gray-800">Learning Progress</h2>
-          <div className="flex items-center space-x-2 text-green-600">
+          <h2 className="text-2xl font-bold text-white">Learning Progress</h2>
+          <div className="flex items-center space-x-2 text-[#F8D991]">
             <Award className="h-5 w-5" />
             <span className="font-semibold">
               {currentStudent.completedLessons.length} / {allLessons.length} Completed
             </span>
           </div>
         </div>
-        <div className="bg-gray-200 rounded-full h-3">
+        <div className="bg-white/20 rounded-full h-3 overflow-hidden">
           <motion.div
-            className="bg-gradient-to-r from-green-500 to-green-600 rounded-full h-3"
+            className="bg-gradient-to-r from-[#F6B080] to-[#F8D991] rounded-full h-3"
             initial={{ width: 0 }}
             animate={{ width: `${(currentStudent.completedLessons.length / allLessons.length) * 100}%` }}
             transition={{ duration: 1, delay: 0.5 }}
           />
         </div>
-        <p className="text-gray-600 text-sm mt-2">
+        <p className="text-white/70 text-sm mt-2">
           Complete all lessons to become an Environmental Expert!
         </p>
       </motion.div>
@@ -72,7 +72,7 @@ const Lessons: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 + index * 0.1 }}
               whileHover={{ scale: 1.02 }}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+              className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl overflow-hidden hover:shadow-2xl hover:bg-white/15 transition-all duration-300"
             >
               <div className="relative">
                 <img
@@ -93,15 +93,15 @@ const Lessons: React.FC = () => {
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{lesson.title}</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">{lesson.description}</p>
+                <h3 className="text-xl font-bold text-white mb-2">{lesson.title}</h3>
+                <p className="text-white/70 text-sm mb-4 line-clamp-3">{lesson.description}</p>
                 
                 <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-2 text-gray-500">
+                  <div className="flex items-center space-x-2 text-white/60">
                     <Clock className="h-4 w-4" />
                     <span className="text-sm">{lesson.duration} min</span>
                   </div>
-                  <div className="flex items-center space-x-2 text-green-600">
+                  <div className="flex items-center space-x-2 text-[#F8D991]">
                     <Award className="h-4 w-4" />
                     <span className="text-sm font-semibold">{lesson.points} points</span>
                   </div>
@@ -111,8 +111,8 @@ const Lessons: React.FC = () => {
                   to={`/lessons/${lesson.id}`}
                   className={`w-full inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-colors ${
                     completed
-                      ? 'bg-green-100 text-green-800 hover:bg-green-200'
-                      : 'bg-blue-600 text-white hover:bg-blue-700'
+                      ? 'bg-[#F6B080]/20 text-[#F6B080] hover:bg-[#F6B080]/30 border border-[#F6B080]/30'
+                      : 'bg-gradient-to-r from-[#F8D991] to-[#F6B080] text-[#091D23] hover:shadow-lg hover:shadow-[#F8D991]/25'
                   }`}
                 >
                   <BookOpen className="h-4 w-4 mr-2" />
@@ -129,9 +129,9 @@ const Lessons: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="bg-white rounded-xl shadow-lg p-6"
+        className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl p-6"
       >
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Learning Categories</h2>
+        <h2 className="text-2xl font-bold text-white mb-6">Learning Categories</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {['Climate Change', 'Waste Management', 'Water Conservation', 'Biodiversity'].map((category, index) => (
             <motion.div
@@ -139,7 +139,7 @@ const Lessons: React.FC = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4 + index * 0.1 }}
-              className="text-center p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow"
+              className="text-center p-4 border border-white/20 rounded-lg hover:bg-white/10 transition-all duration-300"
             >
               <div className="text-2xl mb-2">
                 {category === 'Climate Change' && '🌍'}
@@ -147,8 +147,8 @@ const Lessons: React.FC = () => {
                 {category === 'Water Conservation' && '💧'}
                 {category === 'Biodiversity' && '🦋'}
               </div>
-              <h3 className="font-semibold text-gray-800">{category}</h3>
-              <p className="text-sm text-gray-600">
+              <h3 className="font-semibold text-white">{category}</h3>
+              <p className="text-sm text-white/70">
                 {allLessons.filter(lesson => lesson.category.includes(category.split(' ')[0])).length} lessons
               </p>
             </motion.div>

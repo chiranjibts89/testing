@@ -12,6 +12,8 @@ import Analytics from './pages/Analytics';
 import Profile from './pages/Profile';
 import PointsShop from './pages/PointsShop';
 import TeacherPortal from './pages/TeacherPortal';
+import Contact from './pages/Contact';
+import ProfileEdit from './pages/ProfileEdit';
 import { StudentProvider } from './contexts/StudentContext';
 import { initializeData } from './data/sampleData';
 import { AnimatePresence } from 'framer-motion';
@@ -47,6 +49,8 @@ function App() {
                 </main>
               </div>
             } />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/profile/edit" element={<ProfileEdit />} />
             <Route path="/dashboard" element={
               <div className="min-h-screen bg-gradient-to-br from-[#091D23] to-[#774C3E]">
                 <Header />

@@ -122,8 +122,8 @@ const Leaderboards: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         className="text-center"
       >
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">🏆 Leaderboards</h1>
-        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+        <h1 className="text-4xl font-bold text-white mb-4">🏆 Leaderboards</h1>
+        <p className="text-white/70 text-lg max-w-2xl mx-auto">
           See how you stack up against other eco-warriors across India! Compete, learn, and make a difference together.
         </p>
       </motion.div>
@@ -133,16 +133,16 @@ const Leaderboards: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        className="bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-xl p-6"
+        className="bg-gradient-to-r from-[#F8D991] to-[#F6B080] text-[#091D23] rounded-xl p-6"
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <div className="bg-white/20 rounded-full p-3">
+            <div className="bg-[#091D23]/20 rounded-full p-3">
               {getRankIcon(currentStudentRank)}
             </div>
             <div>
               <h3 className="text-2xl font-bold">Your Current Rank: #{currentStudentRank}</h3>
-              <p className="text-green-100">
+              <p className="text-[#091D23]/70">
                 {currentStudentRank === 1 ? 'You\'re in the lead! 🌟' : 
                  `${leaderboardData[0].ecoPoints - currentStudent.ecoPoints} points behind the leader`}
               </p>
@@ -150,7 +150,7 @@ const Leaderboards: React.FC = () => {
           </div>
           <div className="text-right">
             <div className="text-3xl font-bold">{currentStudent.ecoPoints}</div>
-            <div className="text-green-100">Eco Points</div>
+            <div className="text-[#091D23]/70">Eco Points</div>
           </div>
         </div>
       </motion.div>
@@ -160,11 +160,11 @@ const Leaderboards: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="bg-white rounded-xl shadow-lg p-6"
+        className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl p-6"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Time Period</label>
+            <label className="block text-sm font-medium text-white/80 mb-2">Time Period</label>
             <div className="flex space-x-2">
               {(['weekly', 'monthly', 'all-time'] as const).map((period) => (
                 <button
@@ -172,8 +172,8 @@ const Leaderboards: React.FC = () => {
                   onClick={() => setSelectedPeriod(period)}
                   className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                     selectedPeriod === period
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-[#E1664C] text-white'
+                      : 'bg-white/10 text-white/70 hover:bg-white/20'
                   }`}
                 >
                   <Calendar className="h-4 w-4 inline mr-1" />
@@ -184,7 +184,7 @@ const Leaderboards: React.FC = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Scope</label>
+            <label className="block text-sm font-medium text-white/80 mb-2">Scope</label>
             <div className="flex space-x-2">
               {(['school', 'state', 'national'] as const).map((scope) => (
                 <button
@@ -192,8 +192,8 @@ const Leaderboards: React.FC = () => {
                   onClick={() => setSelectedScope(scope)}
                   className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                     selectedScope === scope
-                      ? 'bg-green-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-[#F8D991] text-[#091D23]'
+                      : 'bg-white/10 text-white/70 hover:bg-white/20'
                   }`}
                 >
                   <Users className="h-4 w-4 inline mr-1" />
@@ -210,9 +210,9 @@ const Leaderboards: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="bg-white rounded-xl shadow-lg p-8"
+        className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl p-8"
       >
-        <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">🏆 Top Performers</h2>
+        <h2 className="text-2xl font-bold text-white mb-8 text-center">🏆 Top Performers</h2>
         <div className="flex justify-center items-end space-x-8">
           {/* 2nd Place */}
           {leaderboardData[1] && (
@@ -222,7 +222,7 @@ const Leaderboards: React.FC = () => {
               transition={{ delay: 0.4 }}
               className="text-center"
             >
-              <div className="bg-gray-100 rounded-lg p-6 mb-4 h-32 flex flex-col justify-end">
+              <div className="bg-white/10 rounded-lg p-6 mb-4 h-32 flex flex-col justify-end">
                 <img
                   src={leaderboardData[1].avatar}
                   alt={leaderboardData[1].name}
@@ -230,9 +230,9 @@ const Leaderboards: React.FC = () => {
                 />
                 <div className="text-4xl mb-2">🥈</div>
               </div>
-              <h3 className="font-bold text-gray-800">{leaderboardData[1].name}</h3>
-              <p className="text-gray-600 text-sm">{leaderboardData[1].school}</p>
-              <p className="text-xl font-bold text-gray-700">{leaderboardData[1].ecoPoints} pts</p>
+              <h3 className="font-bold text-white">{leaderboardData[1].name}</h3>
+              <p className="text-white/70 text-sm">{leaderboardData[1].school}</p>
+              <p className="text-xl font-bold text-[#F6B080]">{leaderboardData[1].ecoPoints} pts</p>
             </motion.div>
           )}
 
@@ -244,17 +244,17 @@ const Leaderboards: React.FC = () => {
               transition={{ delay: 0.5 }}
               className="text-center"
             >
-              <div className="bg-yellow-100 rounded-lg p-6 mb-4 h-40 flex flex-col justify-end">
+              <div className="bg-[#F8D991]/20 rounded-lg p-6 mb-4 h-40 flex flex-col justify-end border border-[#F8D991]/30">
                 <img
                   src={leaderboardData[0].avatar}
                   alt={leaderboardData[0].name}
-                  className="w-20 h-20 rounded-full mx-auto mb-2 border-4 border-yellow-500"
+                  className="w-20 h-20 rounded-full mx-auto mb-2 border-4 border-[#F8D991]"
                 />
                 <div className="text-5xl mb-2">🏆</div>
               </div>
-              <h3 className="font-bold text-gray-800 text-lg">{leaderboardData[0].name}</h3>
-              <p className="text-gray-600">{leaderboardData[0].school}</p>
-              <p className="text-2xl font-bold text-yellow-600">{leaderboardData[0].ecoPoints} pts</p>
+              <h3 className="font-bold text-white text-lg">{leaderboardData[0].name}</h3>
+              <p className="text-white/70">{leaderboardData[0].school}</p>
+              <p className="text-2xl font-bold text-[#F8D991]">{leaderboardData[0].ecoPoints} pts</p>
             </motion.div>
           )}
 
@@ -266,17 +266,17 @@ const Leaderboards: React.FC = () => {
               transition={{ delay: 0.6 }}
               className="text-center"
             >
-              <div className="bg-amber-100 rounded-lg p-6 mb-4 h-28 flex flex-col justify-end">
+              <div className="bg-[#F58B60]/20 rounded-lg p-6 mb-4 h-28 flex flex-col justify-end border border-[#F58B60]/30">
                 <img
                   src={leaderboardData[2].avatar}
                   alt={leaderboardData[2].name}
-                  className="w-14 h-14 rounded-full mx-auto mb-2 border-4 border-amber-600"
+                  className="w-14 h-14 rounded-full mx-auto mb-2 border-4 border-[#F58B60]"
                 />
                 <div className="text-3xl mb-2">🥉</div>
               </div>
-              <h3 className="font-bold text-gray-800">{leaderboardData[2].name}</h3>
-              <p className="text-gray-600 text-sm">{leaderboardData[2].school}</p>
-              <p className="text-xl font-bold text-amber-600">{leaderboardData[2].ecoPoints} pts</p>
+              <h3 className="font-bold text-white">{leaderboardData[2].name}</h3>
+              <p className="text-white/70 text-sm">{leaderboardData[2].school}</p>
+              <p className="text-xl font-bold text-[#F58B60]">{leaderboardData[2].ecoPoints} pts</p>
             </motion.div>
           )}
         </div>
@@ -287,12 +287,12 @@ const Leaderboards: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.7 }}
-        className="bg-white rounded-xl shadow-lg overflow-hidden"
+        className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl overflow-hidden"
       >
-        <div className="p-6 border-b border-gray-200">
-          <h2 className="text-2xl font-bold text-gray-800">Full Rankings</h2>
+        <div className="p-6 border-b border-white/20">
+          <h2 className="text-2xl font-bold text-white">Full Rankings</h2>
         </div>
-        <div className="divide-y divide-gray-100">
+        <div className="divide-y divide-white/10">
           {leaderboardData.map((student, index) => {
             const rank = index + 1;
             const isCurrentStudent = student.id === currentStudent.id;
@@ -302,8 +302,8 @@ const Leaderboards: React.FC = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.8 + index * 0.05 }}
-                className={`p-6 hover:bg-gray-50 transition-colors ${
-                  isCurrentStudent ? 'bg-blue-50 border-l-4 border-blue-500' : ''
+                className={`p-6 hover:bg-white/5 transition-colors ${
+                  isCurrentStudent ? 'bg-[#E1664C]/20 border-l-4 border-[#E1664C]' : ''
                 } ${getRankBg(rank)} border`}
               >
                 <div className="flex items-center justify-between">
@@ -314,42 +314,42 @@ const Leaderboards: React.FC = () => {
                     <img
                       src={student.avatar}
                       alt={student.name}
-                      className="w-12 h-12 rounded-full border-2 border-gray-200"
+                      className="w-12 h-12 rounded-full border-2 border-white/20"
                     />
                     <div>
-                      <h3 className={`font-bold ${isCurrentStudent ? 'text-blue-800' : 'text-gray-800'}`}>
+                      <h3 className={`font-bold ${isCurrentStudent ? 'text-white' : 'text-white'}`}>
                         {student.name}
-                        {isCurrentStudent && <span className="ml-2 text-blue-600">(You)</span>}
+                        {isCurrentStudent && <span className="ml-2 text-[#E1664C]">(You)</span>}
                       </h3>
-                      <p className="text-gray-600 text-sm">
+                      <p className="text-white/70 text-sm">
                         {student.school} • Grade {student.grade}
                       </p>
-                      <p className="text-gray-500 text-xs">{student.state}</p>
+                      <p className="text-white/60 text-xs">{student.state}</p>
                     </div>
                   </div>
 
                   <div className="flex items-center space-x-6">
                     <div className="text-center">
-                      <div className="flex items-center space-x-1 text-orange-600">
+                      <div className="flex items-center space-x-1 text-[#E1664C]">
                         <span className="text-lg">🔥</span>
                         <span className="font-bold">{student.streak}</span>
                       </div>
-                      <div className="text-xs text-gray-500">day streak</div>
+                      <div className="text-xs text-white/60">day streak</div>
                     </div>
                     
                     <div className="text-center">
-                      <div className="text-green-600 font-bold">Level {student.level}</div>
-                      <div className="text-xs text-gray-500">experience</div>
+                      <div className="text-[#F6B080] font-bold">Level {student.level}</div>
+                      <div className="text-xs text-white/60">experience</div>
                     </div>
 
                     <div className="text-right">
                       <div className="flex items-center space-x-1">
-                        <TrendingUp className="h-4 w-4 text-green-500" />
-                        <span className="text-2xl font-bold text-gray-800">
+                        <TrendingUp className="h-4 w-4 text-[#F8D991]" />
+                        <span className="text-2xl font-bold text-white">
                           {student.ecoPoints.toLocaleString()}
                         </span>
                       </div>
-                      <div className="text-sm text-gray-600">eco points</div>
+                      <div className="text-sm text-white/70">eco points</div>
                     </div>
                   </div>
                 </div>
@@ -364,10 +364,10 @@ const Leaderboards: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.9 }}
-        className="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl p-6 text-center"
+        className="bg-gradient-to-r from-[#F58B60] to-[#E1664C] text-white rounded-xl p-6 text-center"
       >
         <h3 className="text-xl font-bold mb-2">🌟 Keep Going!</h3>
-        <p className="text-purple-100">
+        <p className="text-white/80">
           Every challenge you complete and lesson you learn makes a real difference for our planet. 
           {currentStudentRank > 1 && ` You're only ${leaderboardData[0].ecoPoints - currentStudent.ecoPoints} points away from the top!`}
         </p>

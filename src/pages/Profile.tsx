@@ -103,153 +103,65 @@ const Profile: React.FC = () => {
 
           {/* Edit Button */}
           <div className="flex justify-end pt-4">
-            {isEditing ? (
-              <div className="space-x-2">
-                <button
-                  onClick={handleSave}
-                  className="flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
-                >
-                  <Save className="h-4 w-4" />
-                  <span>Save</span>
-                </button>
-                <button
-                  onClick={handleCancel}
-                  className="flex items-center space-x-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700"
-                >
-                  Cancel
-                </button>
-              </div>
-            ) : (
-              <button
-                onClick={() => setIsEditing(true)}
-                className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-              >
-                <Edit className="h-4 w-4" />
-                <span>Edit Profile</span>
-              </button>
-            )}
+            <Link
+              to="/profile/edit"
+              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <Edit className="h-4 w-4" />
+              <span>Edit Profile</span>
+            </Link>
           </div>
 
           {/* Profile Info */}
           <div className="mt-16 space-y-6">
-            {isEditing ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                  <input
-                    type="text"
-                    value={editForm.name}
-                    onChange={(e) => setEditForm({ ...editForm, name: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500"
-                  />
+            <div>
+              <h2 className="text-3xl font-bold text-gray-800">{currentStudent.name}</h2>
+              <div className="flex items-center space-x-4 mt-2 text-gray-600">
+                <div className="flex items-center space-x-1">
+                  <School className="h-4 w-4" />
+                  <span>Grade {currentStudent.grade}</span>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Grade</label>
-                  <input
-                    type="text"
-                    value={editForm.grade}
-                    onChange={(e) => setEditForm({ ...editForm, grade: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500"
-                  />
+                <div className="flex items-center space-x-1">
+                  <User className="h-4 w-4" />
+                  <span>{currentStudent.school}</span>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">School</label>
-                  <input
-                    type="text"
-                    value={editForm.school}
-                    onChange={(e) => setEditForm({ ...editForm, school: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">State</label>
-                  <select
-                    value={editForm.state}
-                    onChange={(e) => setEditForm({ ...editForm, state: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500"
-                  >
-                    <option value="Andhra Pradesh">Andhra Pradesh</option>
-                    <option value="Bihar">Bihar</option>
-                    <option value="Gujarat">Gujarat</option>
-                    <option value="Karnataka">Karnataka</option>
-                    <option value="Maharashtra">Maharashtra</option>
-                    <option value="Rajasthan">Rajasthan</option>
-                    <option value="Tamil Nadu">Tamil Nadu</option>
-                    <option value="Telangana">Telangana</option>
-                    <option value="West Bengal">West Bengal</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Weekly Goal (points)</label>
-                  <input
-                    type="number"
-                    value={editForm.weeklyGoal}
-                    onChange={(e) => setEditForm({ ...editForm, weeklyGoal: parseInt(e.target.value) })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Monthly Goal (points)</label>
-                  <input
-                    type="number"
-                    value={editForm.monthlyGoal}
-                    onChange={(e) => setEditForm({ ...editForm, monthlyGoal: parseInt(e.target.value) })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500"
-                  />
+                <div className="flex items-center space-x-1">
+                  <MapPin className="h-4 w-4" />
+                  <span>{currentStudent.state}</span>
                 </div>
               </div>
-            ) : (
-              <>
-                <div>
-                  <h2 className="text-3xl font-bold text-gray-800">{currentStudent.name}</h2>
-                  <div className="flex items-center space-x-4 mt-2 text-gray-600">
-                    <div className="flex items-center space-x-1">
-                      <School className="h-4 w-4" />
-                      <span>Grade {currentStudent.grade}</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <User className="h-4 w-4" />
-                      <span>{currentStudent.school}</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <MapPin className="h-4 w-4" />
-                      <span>{currentStudent.state}</span>
-                    </div>
-                  </div>
-                </div>
+            </div>
 
-                {/* Level and Streak */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="bg-green-50 rounded-lg p-4 text-center">
-                    <div className="text-2xl font-bold text-green-600">{currentStudent.level}</div>
-                    <div className="text-green-700">Current Level</div>
-                  </div>
-                  <div className="bg-orange-50 rounded-lg p-4 text-center">
-                    <div className="flex items-center justify-center space-x-1">
-                      <span className="text-2xl">🔥</span>
-                      <span className="text-2xl font-bold text-orange-600">{currentStudent.streak}</span>
-                    </div>
-                    <div className="text-orange-700">Day Streak</div>
-                  </div>
-                  <div className="bg-blue-50 rounded-lg p-4 text-center">
-                    <div className="text-2xl font-bold text-blue-600">{daysSinceJoined}</div>
-                    <div className="text-blue-700">Days Active</div>
-                  </div>
+            {/* Level and Streak */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-green-50 rounded-lg p-4 text-center">
+                <div className="text-2xl font-bold text-green-600">{currentStudent.level}</div>
+                <div className="text-green-700">Current Level</div>
+              </div>
+              <div className="bg-orange-50 rounded-lg p-4 text-center">
+                <div className="flex items-center justify-center space-x-1">
+                  <span className="text-2xl">🔥</span>
+                  <span className="text-2xl font-bold text-orange-600">{currentStudent.streak}</span>
                 </div>
+                <div className="text-orange-700">Day Streak</div>
+              </div>
+              <div className="bg-blue-50 rounded-lg p-4 text-center">
+                <div className="text-2xl font-bold text-blue-600">{daysSinceJoined}</div>
+                <div className="text-blue-700">Days Active</div>
+              </div>
+            </div>
 
-                {/* Member Since */}
-                <div className="flex items-center space-x-2 text-gray-600">
-                  <Calendar className="h-4 w-4" />
-                  <span>
-                    Member since {joinDate.toLocaleDateString('en-IN', { 
-                      year: 'numeric', 
-                      month: 'long', 
-                      day: 'numeric' 
-                    })}
-                  </span>
-                </div>
-              </>
-            )}
+            {/* Member Since */}
+            <div className="flex items-center space-x-2 text-gray-600">
+              <Calendar className="h-4 w-4" />
+              <span>
+                Member since {joinDate.toLocaleDateString('en-IN', { 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric' 
+                })}
+              </span>
+            </div>
           </div>
         </div>
       </motion.div>

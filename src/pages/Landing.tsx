@@ -90,16 +90,8 @@ const Landing: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              className="flex justify-center items-center"
             >
-              <Link
-                to="/dashboard"
-                className="group bg-gradient-to-r from-[#F8D991] to-[#F6B080] text-[#091D23] px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-[#F8D991]/25 transition-all duration-300 flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-[#E1664C] focus:ring-offset-2 focus:ring-offset-transparent"
-              >
-                <span>Start Your Journey</span>
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-
               <button className="group bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transition-all duration-300 flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-[#E1664C] focus:ring-offset-2 focus:ring-offset-transparent">
                 <Play className="h-5 w-5" />
                 <span>Watch Demo</span>
@@ -443,10 +435,10 @@ const Landing: React.FC = () => {
               positive impact on the environment.
             </p>
             <Link
-              to="/dashboard"
+              to="/contact"
               className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#F8D991] to-[#F6B080] text-[#091D23] px-10 py-5 rounded-full font-bold text-xl hover:shadow-2xl hover:shadow-[#F8D991]/25 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-[#E1664C] focus:ring-offset-2 focus:ring-offset-transparent"
             >
-              <span>Get Started Today</span>
+              <span>Get in Touch</span>
               <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>

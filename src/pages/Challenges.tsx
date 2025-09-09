@@ -54,8 +54,8 @@ const Challenges: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         className="text-center"
       >
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">Environmental Challenges</h1>
-        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+        <h1 className="text-4xl font-bold text-white mb-4">Environmental Challenges</h1>
+        <p className="text-white/70 text-lg max-w-2xl mx-auto">
           Take action in the real world! Complete these hands-on challenges to make a positive environmental impact in your community.
         </p>
       </motion.div>
@@ -67,30 +67,30 @@ const Challenges: React.FC = () => {
         transition={{ delay: 0.1 }}
         className="grid grid-cols-1 md:grid-cols-4 gap-6"
       >
-        <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-          <Target className="h-8 w-8 text-green-600 mx-auto mb-2" />
-          <div className="text-2xl font-bold text-gray-800">{allChallenges.length}</div>
-          <div className="text-gray-600 text-sm">Total Challenges</div>
+        <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl p-6 text-center">
+          <Target className="h-8 w-8 text-[#F8D991] mx-auto mb-2" />
+          <div className="text-2xl font-bold text-white">{allChallenges.length}</div>
+          <div className="text-white/70 text-sm">Total Challenges</div>
         </div>
-        <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-          <CheckCircle className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-          <div className="text-2xl font-bold text-gray-800">{currentStudent.completedChallenges.length}</div>
-          <div className="text-gray-600 text-sm">Completed</div>
+        <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl p-6 text-center">
+          <CheckCircle className="h-8 w-8 text-[#F6B080] mx-auto mb-2" />
+          <div className="text-2xl font-bold text-white">{currentStudent.completedChallenges.length}</div>
+          <div className="text-white/70 text-sm">Completed</div>
         </div>
-        <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-          <Star className="h-8 w-8 text-yellow-600 mx-auto mb-2" />
-          <div className="text-2xl font-bold text-gray-800">
+        <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl p-6 text-center">
+          <Star className="h-8 w-8 text-[#F58B60] mx-auto mb-2" />
+          <div className="text-2xl font-bold text-white">
             {allChallenges
               .filter(c => currentStudent.completedChallenges.includes(c.id))
               .reduce((sum, c) => sum + c.points, 0)}
           </div>
-          <div className="text-gray-600 text-sm">Points Earned</div>
+          <div className="text-white/70 text-sm">Points Earned</div>
         </div>
-        <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-          <div className="text-2xl font-bold text-gray-800">
+        <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl p-6 text-center">
+          <div className="text-2xl font-bold text-white">
             {Math.round((currentStudent.completedChallenges.length / allChallenges.length) * 100)}%
           </div>
-          <div className="text-gray-600 text-sm">Completion Rate</div>
+          <div className="text-white/70 text-sm">Completion Rate</div>
         </div>
       </motion.div>
 
@@ -99,36 +99,36 @@ const Challenges: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="bg-white rounded-xl shadow-lg p-6"
+        className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl p-6"
       >
         <div className="flex flex-wrap gap-4 items-center">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+            <label className="block text-sm font-medium text-white/80 mb-1">Category</label>
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-green-500 focus:border-green-500"
+              className="bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-white focus:ring-[#E1664C] focus:border-[#E1664C] backdrop-blur-sm"
             >
-              <option value="all">All Categories</option>
-              <option value="conservation">Conservation</option>
-              <option value="waste">Waste Management</option>
-              <option value="water">Water Conservation</option>
-              <option value="energy">Energy</option>
-              <option value="biodiversity">Biodiversity</option>
-              <option value="climate">Climate</option>
+              <option value="all" className="bg-[#091D23] text-white">All Categories</option>
+              <option value="conservation" className="bg-[#091D23] text-white">Conservation</option>
+              <option value="waste" className="bg-[#091D23] text-white">Waste Management</option>
+              <option value="water" className="bg-[#091D23] text-white">Water Conservation</option>
+              <option value="energy" className="bg-[#091D23] text-white">Energy</option>
+              <option value="biodiversity" className="bg-[#091D23] text-white">Biodiversity</option>
+              <option value="climate" className="bg-[#091D23] text-white">Climate</option>
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Difficulty</label>
+            <label className="block text-sm font-medium text-white/80 mb-1">Difficulty</label>
             <select
               value={selectedDifficulty}
               onChange={(e) => setSelectedDifficulty(e.target.value)}
-              className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-green-500 focus:border-green-500"
+              className="bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-white focus:ring-[#E1664C] focus:border-[#E1664C] backdrop-blur-sm"
             >
-              <option value="all">All Difficulties</option>
-              <option value="Easy">Easy</option>
-              <option value="Medium">Medium</option>
-              <option value="Hard">Hard</option>
+              <option value="all" className="bg-[#091D23] text-white">All Difficulties</option>
+              <option value="Easy" className="bg-[#091D23] text-white">Easy</option>
+              <option value="Medium" className="bg-[#091D23] text-white">Medium</option>
+              <option value="Hard" className="bg-[#091D23] text-white">Hard</option>
             </select>
           </div>
         </div>
@@ -145,7 +145,7 @@ const Challenges: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 + index * 0.1 }}
               whileHover={{ scale: 1.02 }}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+              className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl overflow-hidden hover:shadow-2xl hover:bg-white/15 transition-all duration-300"
             >
               <div className="relative">
                 <img
@@ -169,10 +169,10 @@ const Challenges: React.FC = () => {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{challenge.title}</h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">{challenge.description}</p>
+                <h3 className="text-xl font-bold text-white mb-2">{challenge.title}</h3>
+                <p className="text-white/70 text-sm mb-4 line-clamp-3">{challenge.description}</p>
 
-                <div className="space-y-2 mb-4 text-sm text-gray-500">
+                <div className="space-y-2 mb-4 text-sm text-white/60">
                   <div className="flex items-center space-x-2">
                     <Clock className="h-4 w-4" />
                     <span>{challenge.estimatedTime}</span>
@@ -192,7 +192,7 @@ const Challenges: React.FC = () => {
                 </div>
 
                 <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-2 text-green-600">
+                  <div className="flex items-center space-x-2 text-[#F8D991]">
                     <Star className="h-4 w-4" />
                     <span className="font-semibold">{challenge.points} points</span>
                   </div>
@@ -203,8 +203,8 @@ const Challenges: React.FC = () => {
                   disabled={completed}
                   className={`w-full flex items-center justify-center space-x-2 px-4 py-2 rounded-lg font-medium transition-colors ${
                     completed
-                      ? 'bg-green-100 text-green-800 cursor-not-allowed'
-                      : 'bg-blue-600 text-white hover:bg-blue-700'
+                      ? 'bg-[#F6B080]/20 text-[#F6B080] cursor-not-allowed border border-[#F6B080]/30'
+                      : 'bg-gradient-to-r from-[#F8D991] to-[#F6B080] text-[#091D23] hover:shadow-lg hover:shadow-[#F8D991]/25'
                   }`}
                 >
                   {completed ? (

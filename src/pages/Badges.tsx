@@ -56,8 +56,8 @@ const Badges: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         className="text-center"
       >
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">🏅 Achievement Badges</h1>
-        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+        <h1 className="text-4xl font-bold text-white mb-4">🏅 Achievement Badges</h1>
+        <p className="text-white/70 text-lg max-w-2xl mx-auto">
           Collect badges by completing challenges and lessons. Show off your environmental achievements!
         </p>
       </motion.div>
@@ -69,28 +69,28 @@ const Badges: React.FC = () => {
         transition={{ delay: 0.1 }}
         className="grid grid-cols-1 md:grid-cols-4 gap-6"
       >
-        <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-          <Award className="h-8 w-8 text-yellow-600 mx-auto mb-2" />
-          <div className="text-2xl font-bold text-gray-800">{earnedBadges.length}</div>
-          <div className="text-gray-600 text-sm">Earned Badges</div>
+        <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl p-6 text-center">
+          <Award className="h-8 w-8 text-[#F8D991] mx-auto mb-2" />
+          <div className="text-2xl font-bold text-white">{earnedBadges.length}</div>
+          <div className="text-white/70 text-sm">Earned Badges</div>
         </div>
-        <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-          <Lock className="h-8 w-8 text-gray-400 mx-auto mb-2" />
-          <div className="text-2xl font-bold text-gray-800">{allBadges.length - earnedBadges.length}</div>
-          <div className="text-gray-600 text-sm">Locked Badges</div>
+        <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl p-6 text-center">
+          <Lock className="h-8 w-8 text-white/50 mx-auto mb-2" />
+          <div className="text-2xl font-bold text-white">{allBadges.length - earnedBadges.length}</div>
+          <div className="text-white/70 text-sm">Locked Badges</div>
         </div>
-        <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-          <Star className="h-8 w-8 text-purple-600 mx-auto mb-2" />
-          <div className="text-2xl font-bold text-gray-800">
+        <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl p-6 text-center">
+          <Star className="h-8 w-8 text-[#F58B60] mx-auto mb-2" />
+          <div className="text-2xl font-bold text-white">
             {Math.round((earnedBadges.length / allBadges.length) * 100)}%
           </div>
-          <div className="text-gray-600 text-sm">Collection Progress</div>
+          <div className="text-white/70 text-sm">Collection Progress</div>
         </div>
-        <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-          <div className="text-2xl font-bold text-gray-800">
+        <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl p-6 text-center">
+          <div className="text-2xl font-bold text-white">
             {earnedBadges.filter(b => b?.tier === 'Gold' || b?.tier === 'Platinum').length}
           </div>
-          <div className="text-gray-600 text-sm">Rare Badges</div>
+          <div className="text-white/70 text-sm">Rare Badges</div>
         </div>
       </motion.div>
 
@@ -99,17 +99,17 @@ const Badges: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="bg-white rounded-xl shadow-lg p-6"
+        className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl p-6"
       >
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-bold text-gray-800">Collection Progress</h2>
-          <span className="text-green-600 font-semibold">
+          <h2 className="text-2xl font-bold text-white">Collection Progress</h2>
+          <span className="text-[#F8D991] font-semibold">
             {earnedBadges.length} / {allBadges.length} badges
           </span>
         </div>
-        <div className="bg-gray-200 rounded-full h-4">
+        <div className="bg-white/20 rounded-full h-4 overflow-hidden">
           <motion.div
-            className="bg-gradient-to-r from-green-500 to-blue-500 rounded-full h-4"
+            className="bg-gradient-to-r from-[#F6B080] to-[#F8D991] rounded-full h-4"
             initial={{ width: 0 }}
             animate={{ width: `${(earnedBadges.length / allBadges.length) * 100}%` }}
             transition={{ duration: 1, delay: 0.5 }}
@@ -122,9 +122,9 @@ const Badges: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="bg-white rounded-xl shadow-lg p-6"
+        className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl p-6"
       >
-        <h3 className="text-lg font-semibold text-gray-800 mb-4">Filter by Category</h3>
+        <h3 className="text-lg font-semibold text-white mb-4">Filter by Category</h3>
         <div className="flex flex-wrap gap-2">
           {categories.map((category) => (
             <button
@@ -132,8 +132,8 @@ const Badges: React.FC = () => {
               onClick={() => setSelectedCategory(category)}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 selectedCategory === category
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-[#E1664C] text-white'
+                  : 'bg-white/10 text-white/70 hover:bg-white/20'
               }`}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -148,9 +148,9 @@ const Badges: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="bg-white rounded-xl shadow-lg p-6"
+          className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl p-6"
         >
-          <h3 className="text-xl font-bold text-gray-800 mb-4">🎉 Recently Earned</h3>
+          <h3 className="text-xl font-bold text-white mb-4">🎉 Recently Earned</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {earnedBadges.slice(-3).reverse().map((badge, index) => badge && (
               <motion.div
@@ -158,7 +158,7 @@ const Badges: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5 + index * 0.1 }}
-                className="flex items-center space-x-3 bg-green-50 border border-green-200 rounded-lg p-3"
+                className="flex items-center space-x-3 bg-[#F6B080]/20 border border-[#F6B080]/30 rounded-lg p-3"
               >
                 <div className="relative">
                   <img
@@ -171,8 +171,8 @@ const Badges: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800">{badge.name}</h4>
-                  <p className="text-green-600 text-sm">Just earned!</p>
+                  <h4 className="font-semibold text-white">{badge.name}</h4>
+                  <p className="text-[#F6B080] text-sm">Just earned!</p>
                 </div>
               </motion.div>
             ))}
@@ -196,8 +196,8 @@ const Badges: React.FC = () => {
               onClick={() => setSelectedBadge(badge.id)}
               className={`relative cursor-pointer rounded-xl p-4 transition-all duration-300 ${
                 earned 
-                  ? 'bg-white shadow-lg hover:shadow-xl border-2 border-green-200' 
-                  : 'bg-gray-100 hover:bg-gray-200 border-2 border-gray-200 opacity-75'
+                  ? 'backdrop-blur-md bg-white/10 border-2 border-[#F6B080]/30 shadow-xl hover:shadow-2xl hover:bg-white/15' 
+                  : 'backdrop-blur-md bg-white/5 border-2 border-white/10 opacity-75 hover:bg-white/10'
               }`}
             >
               {/* Badge Image */}
@@ -221,7 +221,7 @@ const Badges: React.FC = () => {
 
               {/* Badge Info */}
               <div className="text-center">
-                <h3 className={`font-bold text-sm mb-1 ${earned ? 'text-gray-800' : 'text-gray-500'}`}>
+                <h3 className={`font-bold text-sm mb-1 ${earned ? 'text-white' : 'text-white/50'}`}>
                   {badge.name}
                 </h3>
                 
@@ -261,7 +261,7 @@ const Badges: React.FC = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-xl shadow-xl max-w-md w-full p-6"
+              className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-xl max-w-md w-full p-6"
             >
               <div className="text-center">
                 {/* Badge Image */}
@@ -279,7 +279,7 @@ const Badges: React.FC = () => {
                 </div>
 
                 {/* Badge Details */}
-                <h2 className="text-2xl font-bold text-gray-800 mb-2">{selectedBadgeData.name}</h2>
+                <h2 className="text-2xl font-bold text-white mb-2">{selectedBadgeData.name}</h2>
                 
                 <div className="flex justify-center space-x-2 mb-4">
                   <span className={`px-3 py-1 rounded-full text-sm font-semibold bg-gradient-to-r ${getTierColor(selectedBadgeData.tier)} text-white`}>
@@ -290,16 +290,16 @@ const Badges: React.FC = () => {
                   </span>
                 </div>
 
-                <p className="text-gray-600 mb-4">{selectedBadgeData.description}</p>
+                <p className="text-white/70 mb-4">{selectedBadgeData.description}</p>
 
-                <div className="bg-gray-50 rounded-lg p-4 mb-4">
-                  <h4 className="font-semibold text-gray-800 mb-2">How to earn:</h4>
-                  <p className="text-gray-600 text-sm">{selectedBadgeData.criteria}</p>
+                <div className="bg-white/10 rounded-lg p-4 mb-4">
+                  <h4 className="font-semibold text-white mb-2">How to earn:</h4>
+                  <p className="text-white/70 text-sm">{selectedBadgeData.criteria}</p>
                 </div>
 
                 {isEarned(selectedBadgeData.id) && getEarnedDate(selectedBadgeData.id) && (
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
-                    <div className="flex items-center justify-center space-x-2 text-green-700">
+                  <div className="bg-[#F6B080]/20 border border-[#F6B080]/30 rounded-lg p-3 mb-4">
+                    <div className="flex items-center justify-center space-x-2 text-[#F6B080]">
                       <Calendar className="h-4 w-4" />
                       <span className="text-sm">
                         Earned on {getEarnedDate(selectedBadgeData.id)!.toLocaleDateString()}
@@ -310,7 +310,7 @@ const Badges: React.FC = () => {
 
                 <button
                   onClick={() => setSelectedBadge(null)}
-                  className="w-full px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium"
+                  className="w-full px-6 py-2 bg-gradient-to-r from-[#F8D991] to-[#F6B080] text-[#091D23] rounded-lg hover:shadow-lg hover:shadow-[#F8D991]/25 font-medium transition-all duration-300"
                 >
                   Close
                 </button>
